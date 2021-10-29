@@ -62,13 +62,13 @@ def snippet_detailByName(request, name):
     """
     Retrieve, update or delete a code snippet.
     """
-    print(name)
     try:
-        snippet = Snippet.objects.all().filter(nom__contains=name)
+        snippet = Snippet.objects.get(nom__exact=name)
     except Snippet.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
+
         serializer = SnippetSerializer(snippet)
         return Response(serializer.data)
 
@@ -82,3 +82,15 @@ def snippet_detailByName(request, name):
     elif request.method == 'DELETE':
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET'])
+def snippet_numberDeal(request):
+    """
+    Retrieve, update or delete a code snippet.
+    """
+
+    if request.method == 'GET':
+        snippets = Snippet.objects.all()
+        serializer = SnippetSerializer(snippets, many=True)
+        return Response(serializer.data.__len__())

@@ -5,4 +5,3 @@ myobj = {"id": 5, "title": "", "code": "print(\"Anoujean\")\n", "linenos": False
 
 x = requests.post(url, data = myobj)
 
-print(x.text)
