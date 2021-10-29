@@ -7,14 +7,14 @@ myobj =  {
         "code": "",
         "devise": "",
         "zone": "abap",
-        "brower": "",
+        "borower": "",
         "lender": "",
         "status": ""
     }
 
 
 
-url = 'https://deal-service.herokuapp.com/snippets/'
+url = 'http://127.0.0.1:8000/snippets/'
 def fullName(personne):
     return personne["firstName"]+"."+personne["lastName"]
 
@@ -35,7 +35,7 @@ for message in messageList:
     myobj['nom'] = jsonResponse['deal']['name']
     myobj['montant'] = jsonResponse['deal']['amount']//1000
     myobj['code']= jsonResponse['code']
-    myobj['zone'] = "abap"
+    myobj['zone'] = "Europe"
     myobj['status']="Structuring"
     myobj['lender'] = fullName(jsonResponse['deal']['dealCreator'])
     requests.post(url,data= myobj)

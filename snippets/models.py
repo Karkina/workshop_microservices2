@@ -20,7 +20,7 @@ class Snippet(models.Model):
     montant = models.DecimalField(decimal_places=2, max_digits=1000000)
     devise = models.CharField(choices=DEVISE,default="Eur",max_length=20)
     zone = models.CharField(default="0",choices=ZONES, max_length=100)
-    brower = models.CharField(default="0",max_length=100)
+    borower = models.CharField(default="0",max_length=100)
     lender = models.CharField(default="0",max_length=100)
     status = models.CharField(choices=STATUS, default="Waiting",max_length=20)
 

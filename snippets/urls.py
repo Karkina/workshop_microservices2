@@ -2,10 +2,10 @@ from django.urls import path
 from snippets import views
 
 urlpatterns = [
-    path('snippets/', views.snippet_list),
-    path('snippets/<int:pk>/', views.snippet_detail),
+    path('api/deal/getAll', views.snippet_list),
+    path('api/deal/getById<int:pk>/', views.snippet_detail),
 
-    path('snippets/name=<name>/', views.snippet_detailByName),
-    path('snippets/dealsNumber/', views.snippet_numberDeal),
+    path('api/deal/getByName=<name>/', views.snippet_detailByName),
+    path('api/deal/getDealsNumber/', views.snippet_numberDeal),
 
 ]
