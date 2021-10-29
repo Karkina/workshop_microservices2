@@ -1,5 +1,5 @@
 import rabbitpy
-#import requests
+import requests
 from . postDataRabbit import post_deals_from_rabbitmq
 messageList = []
 myobj =  {
@@ -13,8 +13,7 @@ myobj =  {
         "status": ""
     }
 
-
- url = 'https://deal-service.herokuapp.com/snippets/'
+url = 'https://deal-service.herokuapp.com/snippets/'
 
 
 def fullName(personne):
