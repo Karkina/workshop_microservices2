@@ -14,7 +14,7 @@ myobj =  {
 
 
 
-url = 'http://127.0.0.1:8000/snippets/'
+url = 'http://127.0.0.1:8000/api/deal/getAll'
 def fullName(personne):
     return personne["firstName"]+"."+personne["lastName"]
 
@@ -29,8 +29,6 @@ with rabbitpy.Connection('amqps://jjixgyfe:KI1ImGKoJZs0NNByfOHEJGnV3UbyI339@rat.
             print('There are {} more messages in the queue'.format(len(queue)))
 
 for message in messageList:
-
-
     jsonResponse = message.json()
     myobj['nom'] = jsonResponse['deal']['name']
     myobj['montant'] = jsonResponse['deal']['amount']//1000
@@ -38,7 +36,7 @@ for message in messageList:
     myobj['zone'] = "Europe"
     myobj['status']="Structuring"
     myobj['lender'] = fullName(jsonResponse['deal']['dealCreator'])
-    requests.post(url,data= myobj)
+    print(requests.post(url,data= myobj))
 
 
 
